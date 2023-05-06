@@ -3,7 +3,7 @@
 ## Features
 Option to show item base price in inventory.  
 
-Item context menu (right click) additons:
+Item context menu (right click) additions:
 - ``Salvage``: This is functionally equivalent to putting the item into the crafting menu and attempting to "craft" it. 
 The result is usually iron scraps, linen, palladium, etc.
 - ``Send to Stash``: Sends the item to your stash. This option works only if you are in a town with an active stash (so either a free one or you own a house there).
@@ -43,6 +43,9 @@ I'd love if you also attached a list of mods you are using, and the log from `Ou
 - **Nielsjuh** for helping me test the multiplayer bits
 
 ## Changelog
+### v1.2.1
+- Supported languages: English, French, German, Italian, Spanish, Chinese, Japanese
+
 ### v1.2.0
 - Added **Show item silver value** feature to show the base price of items in inventory.
 
