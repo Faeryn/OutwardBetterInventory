@@ -32,7 +32,7 @@ namespace BetterInventory {
 			SendToHostStashEnabled = Config.Bind(DISPLAY_NAME, "Send to Host Stash", true, "Enables the 'Send to Host's Stash' action on items while in town where the host owns a stash");
 			SendToOtherEnabled = Config.Bind(DISPLAY_NAME, "Send to Other Player", true, "Enables the 'Send to Other Player' action on items in multiplayer");
 			SendToOtherMaxDistance = Config.Bind(DISPLAY_NAME, "Send to Other Player maximum distance", 10f, "Maximum distance between you and the recipient (in metres)");
-			ShowItemValueEnabled = Config.Bind(DISPLAY_NAME, "Show item silver value", false, "Note that this is usually higher than sell price");
+			ShowItemValueEnabled = Config.Bind(DISPLAY_NAME, "Show item silver value", true, "Note that this is usually higher than sell price");
 		}
 	}
 }

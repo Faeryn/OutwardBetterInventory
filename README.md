@@ -17,7 +17,7 @@ It is strongly recommended to use [Outward Config Manager](https://outward.thund
 - **Send to Host Stash**: Enables or disables the Send to Host's Stash action.
 - **Send to Other Player**: Enables or disables the Send to Other Player action.
 - **Send to Other Player max distance**: Sets the maximum distance for the Send to Other Player action (in metres). Default is 10.
-- **Show item silver value**: Shows or hides item silver value (base price) in the inventory. Note that this is usually higher than sell price. Default is off.
+- **Show item silver value**: Shows or hides item silver value (base price) in the inventory. Note that this is usually higher than sell price.
 
 ## Planned features:
 - Drag and drop items and skills onto quickslots to assign
