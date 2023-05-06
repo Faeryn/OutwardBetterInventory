@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Faeryn")]
 [assembly: AssemblyProduct("BetterInventory")]
-[assembly: AssemblyCopyright("Copyright © Faeryn 2021")]
+[assembly: AssemblyCopyright("Copyright © Faeryn 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

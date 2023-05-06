@@ -4,7 +4,7 @@ namespace BetterInventory.ContextMenu {
 	public class SalvageAction : ItemContextMenuAction {
 
 		public override string GetText(ContextMenuOptions contextMenu) {
-			return "Salvage";
+			return LocalizationManager.Instance.GetLoc($"{BetterInventory.GUID}.action.salvage.text");
 		}
 		
 		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item, bool isCurrency) {
@@ -24,7 +24,7 @@ namespace BetterInventory.ContextMenu {
 			craftingMenu.RefreshAutoRecipe();
 			craftingMenu.IngredientSelectorHasChanged(0, itemID);
 			if (craftingMenu.m_lastFreeRecipeIndex == -1) {
-				craftingMenu.m_characterUI.ShowInfoNotification("This item cannot be salvaged.");
+				craftingMenu.m_characterUI.ShowInfoNotification(LocalizationManager.Instance.GetLoc($"{BetterInventory.GUID}.action.salvage.failed"));
 				return;
 			}
 			float origCraftingTime = craftingMenu.CraftingTime;

@@ -4,7 +4,7 @@ namespace BetterInventory.ContextMenu {
 	public class SendToHostStashAction : SendToStashAction {
 
 		public override string GetText(ContextMenuOptions contextMenu) {
-			return "Send to Host's Stash";
+			return LocalizationManager.Instance.GetLoc($"{BetterInventory.GUID}.action.send_to_host_stash.text");
 		}
 		
 		protected override bool IsActive(GameObject pointerPress, ItemDisplay itemDisplay, Item item, bool isCurrency) {

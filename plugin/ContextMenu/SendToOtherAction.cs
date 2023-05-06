@@ -10,7 +10,7 @@ namespace BetterInventory.ContextMenu {
 		}
 
 		public override string GetText(ContextMenuOptions contextMenu) {
-			return $"Send to {GetPlayerName()}";
+			return LocalizationManager.Instance.GetLoc($"{BetterInventory.GUID}.action.send_to_player.text", GetPlayerName());
 		}
 		
 		private string GetPlayerName() {
@@ -45,7 +45,7 @@ namespace BetterInventory.ContextMenu {
 			float maxDistanceSq = BetterInventory.SendToOtherMaxDistance.Value * BetterInventory.SendToOtherMaxDistance.Value;
 			Character character = itemDisplay.m_characterUI.TargetCharacter;
 			if (Vector3.SqrMagnitude(otherCharacter.transform.position - character.transform.position) > maxDistanceSq) {
-				character.CharacterUI.ShowInfoNotification($"{otherCharacter.Name} is too far.");
+				character.CharacterUI.ShowInfoNotification(LocalizationManager.Instance.GetLoc($"{BetterInventory.GUID}.action.send_to_player.too_far", otherCharacter.Name));
 				return;
 			}
 
