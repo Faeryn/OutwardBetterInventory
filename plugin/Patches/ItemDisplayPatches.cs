@@ -1,4 +1,6 @@
+using BetterInventory.Extensions;
 using HarmonyLib;
+using UnityEngine;
 
 namespace BetterInventory.Patches {
 	
@@ -17,14 +19,17 @@ namespace BetterInventory.Patches {
 
 			if (__instance.CharacterUI && __instance.CharacterUI.GetIsMenuDisplayed(CharacterUI.MenuScreens.Shop)) {
 				// Disable in shops
+				__instance.m_lblValue.color = Color.white;
 				return;
 			}
 
 			if (!__instance.m_valueHolder.activeSelf) {
 				__instance.m_valueHolder.SetActive(true);
 			}
-			
-			__instance.m_lblValue.text = __instance.RefItem.RawBaseValue.ToString();
+
+			Item item = __instance.RefItem;
+			__instance.m_lblValue.text = item.RawBaseValue.ToString();
+			__instance.m_lblValue.color = item.IsSellModifierOverridden() ? Color.yellow : Color.white;
 		}
 		
 	}

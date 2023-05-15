@@ -1,4 +1,6 @@
+using System;
 using System.Runtime.CompilerServices;
+using UnityEngine;
 
 namespace BetterInventory.Extensions {
 	public static class ItemExtensions {
@@ -48,6 +50,15 @@ namespace BetterInventory.Extensions {
 				displayName = tempDisplayName;
 			}
 			ext.TemporaryDisplayName = null;
+		}
+		
+		public static bool IsSellModifierOverridden(this Item item) {
+			return Math.Abs(item.m_overrideSellModifier + 1.0) > 0.0001f;
+		}
+		
+		public static int GetSellValue(this Item item, Character player) {
+			float num2 = item.IsSellModifierOverridden() ? item.m_overrideSellModifier : (1f + player.GetItemSellPriceModifier(null, item)) * 0.3f;
+			return Mathf.RoundToInt(item.RawCurrentValue * num2);
 		}
 
 	}
