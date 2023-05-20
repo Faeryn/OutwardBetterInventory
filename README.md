@@ -1,7 +1,7 @@
 # Better Inventory
 
 ## Features
-Option to show item base price in inventory.  
+Option to show item base price in inventory. Items with golden value number are trade items - their buy and sell price is the same (such as gold bars and gems).
 
 Item context menu (right click) additions:
 - ``Salvage``: This is functionally equivalent to putting the item into the crafting menu and attempting to "craft" it. 
@@ -45,6 +45,7 @@ I'd love if you also attached a list of mods you are using, and the log from `Ou
 ## Changelog
 ### v1.2.2
 - Item sell price is now shown in the item details display panel
+- Items with the same buy and sell value have yellow price number
 - Minor bugfixes
 
 ### v1.2.1
