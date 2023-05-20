@@ -43,6 +43,10 @@ I'd love if you also attached a list of mods you are using, and the log from `Ou
 - **Nielsjuh** for helping me test the multiplayer bits
 
 ## Changelog
+### v1.2.2
+- Item sell price is now shown in the item details display panel
+- Minor bugfixes
+
 ### v1.2.1
 - Supported languages: English, French, German, Italian, Spanish, Chinese, Japanese
 

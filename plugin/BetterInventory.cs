@@ -8,7 +8,7 @@ namespace BetterInventory {
 	public class BetterInventory : BaseUnityPlugin {
 		public const string GUID = "faeryn.betterinventory";
 		public const string NAME = "BetterInventory";
-		public const string VERSION = "1.2.1";
+		public const string VERSION = "1.2.2";
 		private const string DISPLAY_NAME = "Better Inventory";
 		internal static ManualLogSource Log;
 		
