@@ -13,7 +13,7 @@ namespace BetterInventory.Patches {
 				return;
 			}
 			
-			if (!__instance.RefItem) {
+			if (!__instance.RefItem || __instance.RefItem is Skill) {
 				return;
 			}
 

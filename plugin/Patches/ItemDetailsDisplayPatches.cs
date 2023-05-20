@@ -8,7 +8,7 @@ namespace BetterInventory.Patches {
 		[HarmonyPatch(nameof(ItemDetailsDisplay.RefreshDetails)), HarmonyPostfix]
 		private static void ItemDetailsDisplay_RefreshDetails_Postfix(ItemDetailsDisplay __instance) {
 			Item item = __instance.m_lastItem;
-			if (item == null) {
+			if (item == null || item is Skill) {
 				return;
 			}
 
