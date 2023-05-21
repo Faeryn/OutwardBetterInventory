@@ -20,6 +20,9 @@ It is strongly recommended to use [Outward Config Manager](https://outward.thund
 - **Show item silver value**: Shows or hides item silver value (base price) in the inventory. Note that this is usually higher than sell price.
 
 ## Planned features:
+- Change item display value with keypress (inventory action)
+- Sort inventory items
+- Ability too mark items as favourites (so they show before other items in the inventory)
 - Drag and drop items and skills onto quickslots to assign
 - Skill menu filters (offensive, sigils, boons, mana spells, stamina skills, etc)
 - Custom skill menu filters (based on user specified criteria)
@@ -43,6 +46,11 @@ I'd love if you also attached a list of mods you are using, and the log from `Ou
 - **Nielsjuh** for helping me test the multiplayer bits
 
 ## Changelog
+### v1.2.3
+- Show silver to weight ratio in item details display panel
+- Configurable item display value (Off, Value, Sell Price, Sell Price / lb, Weight)
+- Localization for price display
+
 ### v1.2.2
 - Item sell price is now shown in the item details display panel
 - Items with the same buy and sell value have yellow price number

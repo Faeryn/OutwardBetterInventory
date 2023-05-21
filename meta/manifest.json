@@ -1,7 +1,7 @@
 {
     "name": "BetterInventory",
     "author": "Faeryn",
-    "version_number": "1.2.2",
+    "version_number": "1.2.3",
     "website_url": "https://github.com/Faeryn/OutwardBetterInventory",
     "description": "Inventory menu improvements: 'Salvage', 'Send to Stash', 'Send to Host's Stash', 'Send to Other Player' in item menu. Show item price in inventory. More information in readme.",
     "dependencies": [
