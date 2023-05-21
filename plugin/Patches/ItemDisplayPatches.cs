@@ -1,6 +1,7 @@
 using BetterInventory.Extensions;
 using HarmonyLib;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BetterInventory.Patches {
 	
@@ -9,17 +10,22 @@ namespace BetterInventory.Patches {
 		
 		[HarmonyPatch(nameof(ItemDisplay.UpdateValueDisplay)), HarmonyPostfix]
 		private static void ItemDisplay_UpdateValueDisplay_Postfix(ItemDisplay __instance) {
-			if (!BetterInventory.ShowItemValueEnabled.Value) {
+			ItemDisplayInfo itemDisplayInfo = BetterInventory.ItemDisplayValue.Value;
+			if (itemDisplayInfo == ItemDisplayInfo.Off) {
 				return;
 			}
 			
 			if (!__instance.RefItem || __instance.RefItem is Skill) {
 				return;
 			}
+			
+			Text valueDisplay = __instance.m_lblValue;
+			GameObject coinIcon = __instance.m_valueHolder.transform.Find("CoinIcon").gameObject;
 
 			if (__instance.CharacterUI && __instance.CharacterUI.GetIsMenuDisplayed(CharacterUI.MenuScreens.Shop)) {
 				// Disable in shops
-				__instance.m_lblValue.color = Color.white;
+				valueDisplay.color = Color.white;
+				coinIcon.SetActive(true);
 				return;
 			}
 
@@ -28,8 +34,35 @@ namespace BetterInventory.Patches {
 			}
 
 			Item item = __instance.RefItem;
-			__instance.m_lblValue.text = item.RawBaseValue.ToString();
-			__instance.m_lblValue.color = item.IsSellModifierOverridden() ? Color.yellow : Color.white;
+			Character character = __instance.CharacterUI.TargetCharacter;
+			bool highlight = false;
+			bool icon = true;
+			string text = "";
+
+			switch (itemDisplayInfo) {
+				case ItemDisplayInfo.Value:
+					text = item.RawBaseValue.ToString();
+					highlight = item.IsSellModifierOverridden();
+					break;
+				case ItemDisplayInfo.SellPrice:
+					text = item.GetSellValue(character).ToString();
+					highlight = item.IsSellModifierOverridden();
+					break;
+				case ItemDisplayInfo.SellPricePerLb:
+					int sellPrice = item.GetSellValue(character);
+					float weight = item.RawWeight;
+					text = weight > 0 && sellPrice > 0 ? (sellPrice / weight).ToString("0.#") : "0";
+					highlight = item.IsSellModifierOverridden();
+					break;
+				case ItemDisplayInfo.Weight:
+					text = item.RawWeight.ToString("0.0");
+					icon = false;
+					break;
+			}
+			
+			valueDisplay.text = text;
+			valueDisplay.color = highlight ? Color.yellow : Color.white;
+			coinIcon.SetActive(icon);
 		}
 		
 	}
