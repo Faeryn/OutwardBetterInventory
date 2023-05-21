@@ -14,9 +14,12 @@ namespace BetterInventory.Patches {
 
 			Character character = __instance.CharacterUI.TargetCharacter;
 			int row = __instance.m_detailRows.Count;
-			__instance.GetRow(row).SetInfo(LocalizationManager.Instance.GetLoc($"{BetterInventory.GUID}.item_detail.value"), item.RawBaseValue.ToString());
+			__instance.GetRow(row).SetInfo(LocalizationManager.Instance.GetLoc($"{BetterInventory.GUID}.item_detail.value"), item.RawBaseValue.ToString(), UIUtilities.SilverIcon);
 			row++;
-			__instance.GetRow(row).SetInfo(LocalizationManager.Instance.GetLoc($"{BetterInventory.GUID}.item_detail.sell_price"), item.GetSellValue(character));
+			int sellPrice = item.GetSellValue(character);
+			float weight = item.RawWeight;
+			string silverPerLb = (sellPrice / weight).ToString("0.#");
+			__instance.GetRow(row).SetInfo(LocalizationManager.Instance.GetLoc($"{BetterInventory.GUID}.item_detail.sell_price"), $"{sellPrice}" + (weight > 0 && sellPrice > 0 ? $" ({silverPerLb}/lb)" : ""), UIUtilities.SilverIcon);
 		}
 
 	}
