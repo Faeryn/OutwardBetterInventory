@@ -46,6 +46,10 @@ I'd love if you also attached a list of mods you are using, and the log from `Ou
 - **Nielsjuh** for helping me test the multiplayer bits
 
 ## Changelog
+
+### v1.2.4
+- Stability improvements
+
 ### v1.2.3
 - Show silver to weight ratio in item details display panel
 - Configurable item display value (Off, Value, Sell Price, Sell Price / lb, Weight)
