@@ -18,14 +18,21 @@ namespace BetterInventory.Patches {
 			if (!__instance.RefItem || __instance.RefItem is Skill) {
 				return;
 			}
-			
-			Text valueDisplay = __instance.m_lblValue;
-			GameObject coinIcon = __instance.m_valueHolder.transform.Find("CoinIcon").gameObject;
 
-			if (__instance.CharacterUI && __instance.CharacterUI.GetIsMenuDisplayed(CharacterUI.MenuScreens.Shop)) {
+			Text valueDisplay = __instance.m_lblValue;
+			
+			if (!__instance.m_valueHolder || !valueDisplay || !__instance.CharacterUI) {
+				return;
+			}
+			
+			GameObject coinIcon = __instance.m_valueHolder.transform.Find("CoinIcon")?.gameObject;
+
+			if (__instance.CharacterUI.GetIsMenuDisplayed(CharacterUI.MenuScreens.Shop)) {
 				// Disable in shops
 				valueDisplay.color = Color.white;
-				coinIcon.SetActive(true);
+				if (coinIcon) {
+					coinIcon.SetActive(true);
+				}
 				return;
 			}
 
@@ -62,7 +69,9 @@ namespace BetterInventory.Patches {
 			
 			valueDisplay.text = text;
 			valueDisplay.color = highlight ? Color.yellow : Color.white;
-			coinIcon.SetActive(icon);
+			if (coinIcon) {
+				coinIcon.SetActive(icon);
+			}
 		}
 		
 	}
