@@ -13,6 +13,10 @@ namespace BetterInventory.Patches {
 			}
 
 			Character character = __instance.CharacterUI.TargetCharacter;
+			if (character == null) {
+				return;
+			}
+			
 			int row = __instance.m_detailRows.Count;
 			__instance.GetRow(row).SetInfo(LocalizationManager.Instance.GetLoc($"{BetterInventory.GUID}.item_detail.value"), item.RawBaseValue.ToString(), UIUtilities.SilverIcon);
 			row++;

@@ -1,3 +1,4 @@
+using System;
 using BetterInventory.Extensions;
 using HarmonyLib;
 using UnityEngine;
@@ -25,10 +26,19 @@ namespace BetterInventory.Patches {
 				return;
 			}
 			
+			Character character = __instance.CharacterUI.TargetCharacter;
+			
+			if (!character) {
+				return;
+			}
+
 			GameObject coinIcon = __instance.m_valueHolder.transform.Find("CoinIcon")?.gameObject;
 
-			if (__instance.CharacterUI.GetIsMenuDisplayed(CharacterUI.MenuScreens.Shop)) {
-				// Disable in shops
+			Func<CharacterUI.MenuScreens, bool> isMenuDisplayed = __instance.CharacterUI.GetIsMenuDisplayed;
+
+			if (!isMenuDisplayed(CharacterUI.MenuScreens.Inventory) 
+				&& !isMenuDisplayed(CharacterUI.MenuScreens.Stash) ) {
+				// Enable only in inventory and stash
 				valueDisplay.color = Color.white;
 				if (coinIcon) {
 					coinIcon.SetActive(true);
@@ -41,7 +51,6 @@ namespace BetterInventory.Patches {
 			}
 
 			Item item = __instance.RefItem;
-			Character character = __instance.CharacterUI.TargetCharacter;
 			bool highlight = false;
 			bool icon = true;
 			string text = "";
