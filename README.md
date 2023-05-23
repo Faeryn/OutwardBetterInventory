@@ -47,6 +47,9 @@ I'd love if you also attached a list of mods you are using, and the log from `Ou
 
 ## Changelog
 
+### v1.2.5
+- Limited item price display on items to inventory and stash screen (this should fix any issues with for example Legacy selection on character creation)
+
 ### v1.2.4
 - Stability improvements
 
