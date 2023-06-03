@@ -24,7 +24,7 @@ namespace BetterInventory.ContextMenu {
 			craftingMenu.RefreshAutoRecipe();
 			craftingMenu.IngredientSelectorHasChanged(0, itemID);
 			if (craftingMenu.m_lastFreeRecipeIndex == -1) {
-				craftingMenu.m_characterUI.ShowInfoNotification(LocalizationManager.Instance.GetLoc($"{BetterInventory.GUID}.action.salvage.failed"));
+				craftingMenu.m_characterUI.ShowInfoNotificationLoc($"{BetterInventory.GUID}.action.salvage.failed");
 				return;
 			}
 			float origCraftingTime = craftingMenu.CraftingTime;
