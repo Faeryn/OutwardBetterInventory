@@ -27,7 +27,6 @@ It is strongly recommended to use [Outward Config Manager](https://outward.thund
 - Skill menu filters (offensive, sigils, boons, mana spells, stamina skills, etc)
 - Custom skill menu filters (based on user specified criteria)
 - Optional: Button to cast all spells in a category (useful for boons, probably better with custom filters)
-- Localization
 - Some more salvage recipes (bows for example)
 - Filter items and skills by name
 - Compatibility with any mods that add or change stashes
@@ -46,6 +45,9 @@ I'd love if you also attached a list of mods you are using, and the log from `Ou
 - **Nielsjuh** for helping me test the multiplayer bits
 
 ## Changelog
+
+### v1.2.6
+- Item details display memory leak fix
 
 ### v1.2.5
 - Limited item price display on items to inventory and stash screen (this should fix any issues with for example Legacy selection on character creation)

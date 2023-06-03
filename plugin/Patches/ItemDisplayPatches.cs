@@ -40,7 +40,7 @@ namespace BetterInventory.Patches {
 				&& !isMenuDisplayed(CharacterUI.MenuScreens.Stash) ) {
 				// Enable only in inventory and stash
 				valueDisplay.color = Color.white;
-				if (coinIcon) {
+				if (coinIcon && !coinIcon.activeSelf) {
 					coinIcon.SetActive(true);
 				}
 				return;
@@ -78,7 +78,7 @@ namespace BetterInventory.Patches {
 			
 			valueDisplay.text = text;
 			valueDisplay.color = highlight ? Color.yellow : Color.white;
-			if (coinIcon) {
+			if (coinIcon && coinIcon.activeSelf != icon) {
 				coinIcon.SetActive(icon);
 			}
 		}
