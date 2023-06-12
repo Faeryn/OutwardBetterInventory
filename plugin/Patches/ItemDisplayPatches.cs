@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using BetterInventory.Extensions;
 using HarmonyLib;
 using UnityEngine;
@@ -9,6 +10,8 @@ namespace BetterInventory.Patches {
 	[HarmonyPatch(typeof(ItemDisplay))]
 	public static class ItemDisplayPatches {
 		
+		private static ConditionalWeakTable<ItemDisplay, GameObject> coinIconRefs = new ConditionalWeakTable<ItemDisplay, GameObject>();
+
 		[HarmonyPatch(nameof(ItemDisplay.UpdateValueDisplay)), HarmonyPostfix]
 		private static void ItemDisplay_UpdateValueDisplay_Postfix(ItemDisplay __instance) {
 			ItemDisplayInfo itemDisplayInfo = BetterInventory.ItemDisplayValue.Value;
@@ -32,7 +35,7 @@ namespace BetterInventory.Patches {
 				return;
 			}
 
-			GameObject coinIcon = __instance.m_valueHolder.transform.Find("CoinIcon")?.gameObject;
+			GameObject coinIcon = coinIconRefs.GetValue(__instance, key => key.m_valueHolder.transform.Find("CoinIcon")?.gameObject);
 
 			Func<CharacterUI.MenuScreens, bool> isMenuDisplayed = __instance.CharacterUI.GetIsMenuDisplayed;
 
