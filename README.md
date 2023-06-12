@@ -17,7 +17,7 @@ It is strongly recommended to use [Outward Config Manager](https://outward.thund
 - **Send to Host Stash**: Enables or disables the Send to Host's Stash action.
 - **Send to Other Player**: Enables or disables the Send to Other Player action.
 - **Send to Other Player max distance**: Sets the maximum distance for the Send to Other Player action (in metres). Default is 10.
-- **Item Display Value**: Shows this value on item display panels in the inventory. Options: `Off`, `Value`, `Sell Price`, `Sell Price / lb`,` Weight`)
+- **Item Display Value**: Shows this value on item display panels in the inventory. Options: `Off`, `Value`, `Sell Price`, `Sell Price / lb`,` Weight`
 
 ## Planned features:
 - Change item display value with keypress (inventory action)
@@ -45,6 +45,9 @@ I'd love if you also attached a list of mods you are using, and the log from `Ou
 - **Nielsjuh** for helping me test the multiplayer bits
 
 ## Changelog
+
+### v1.2.7
+- Item details display optimization
 
 ### v1.2.6
 - Item details display memory leak fix
